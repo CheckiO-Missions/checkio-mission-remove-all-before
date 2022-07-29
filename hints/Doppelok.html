@@ -1,0 +1,53 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission
+    </div>
+    <div class="answer">
+        First of all, you need to find the position of "border" in the list. Try to use "list.index()" method.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need some help...
+    </div>
+    <div class="answer">
+        So, if you open your python console and say:
+        <pre class="brush: python">
+a = [1, 2, 3]
+a.index(2)
+        </pre>
+        <p>You should get "1", because element "2" is on "1" position.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        How can I use this in my code?
+    </div>
+    <div class="answer">
+        You need to take a slice of list using "list.index(border)" as first element. And don't forget to check if "border" in list.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        One last question. How my final solution will look like?
+    </div>
+    <div class="answer">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+    if border in items:
+        return items[items.index(border):]
+    else:
+        return items
+        </pre>
+        <p>Or you can do it in one line</p>
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+    return items[items.index(border):] if border in items else items
+        </pre>
+
+    </div>
+</div>
+
+
+</body>
