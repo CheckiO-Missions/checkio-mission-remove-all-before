@@ -1,0 +1,120 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <i>I have no idea how to start solving this mission.</i>
+    </div>
+    <div class="answer">
+        <p>
+            💡 The idea is to find index of wanted element in array and return a slice of array starting from the index.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Ok, what should I start from?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Find the index of wanted element in array with <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof_array.asp">array.indexOf()</a> method and assign it to the new variable.
+        </p>
+        <pre class="brush: javascript">
+let ind = values.indexOf(b);
+        </pre>
+        <p>
+            In case, the element is not in array, the method returns <b class="code">-1</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            Ok, how to make a correct slice of the array?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            For this purpose use <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a> method with start from index <b class="code">ind</b> you've found.
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            What to do in case if element is not in array?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            As I previously said, in this case <b class="code">ind</b> equals <b class="code">-1</b>. And here is a little trick here. Let's look at possible combinations of values: variable <b class="code">ind</b> and expression <b class="code">ind == -1</b>.  
+        </p>
+        <p>
+            If <b class="code">ind >= 0</b> (element is present in array) <b class="code">ind == -1</b> is <b class="code">false (or 0)</b>. Otherwise, if <b class="code">ind = -1</b>, <b class="code">ind == -1</b> is <b class="code">true (or 1)</b>. When element is present in array, you make a slice from it, when absent - return the whole array, or you may say - make a slice from the start of the array, from 0 index!  
+        </p>
+        <p>
+            Such behavior may be reached, if you add these two values as an argument of <b class="code">slice()</b> method. To convert value into number use <b class="code">+</b> operator right before expression.  
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind + +(ind==-1));
+        </pre>
+        <p>
+            In case element is in array you get such expression (index is 5 for example): <b>5 + (ind==-1 -> false -> 0) = 5</b>, in other case (element is not in array, so <b class="code">ind</b> equals <b class="code">-1</b>): <b>-1 + (ind==-1 -> true -> 1) = 0</b>. That's exactly what you need!
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>So, how my final solution should look like?</i>
+    </div>
+    <div class="answer">
+        <p>
+            You just need to wrap your code into function expression and return your slice.
+        </p>
+        <p>Here is the whole solution:</p>
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    let ind = values.indexOf(b);
+    
+    return values.slice(ind + +(ind==-1));
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!</i>
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            This solution uses ternary operator and anonymous function. In case array includes the element, function returns slice, otherwise - the whole array.
+        </p>
+        <pre class="brush: javascript">
+var removeAllBefore = (values: number[], b: number): number[] =>
+values.includes(b) ? values.slice(values.indexOf(b)) : values;
+        </pre>
+        <p>
+            If element is in the array, the maximum is more or equal 0, otherwise slice starts from 0, since 0 > -1.
+        </p>
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    return values.slice(Math.max(0, values.indexOf(b)));
+}
+        </pre>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Thanks! I know and understand more now! Everything works fine!</i>
+    </div>
+    <div class="answer">
+        👍 Glad to hear it!
+    </div>
+</div>
+</body>
