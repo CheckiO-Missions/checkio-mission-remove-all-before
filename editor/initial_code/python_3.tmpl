@@ -9,12 +9,12 @@ def remove_all_before(items: list, border: int) -> Iterable:
 
 {% block example %}
 print('Example:')
-print(remove_all_before([1, 2, 3, 4, 5], 3))
+print(list(remove_all_before([1, 2, 3, 4, 5], 3)))
 {% endblock %}
 
 {% block tests %}
 {% for t in tests %}
-assert {% block call %}remove_all_before({{t.input|p_args}})
+assert {% block call %}list(remove_all_before({{t.input|p_args}}))
 {% endblock %} == {% block result %}{{t.answer|p}}{% endblock %}{% endfor %}
 {% endblock %}
 
