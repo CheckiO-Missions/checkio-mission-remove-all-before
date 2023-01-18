@@ -1,40 +1,55 @@
 <body data-author="Doppelok">
 <div class="question-answer">
     <div class="question">
-        Не знаю навіть з чого почати...
+        <p>
+            Не знаю навіть з чого почати...
+        </p>        
     </div>
     <div class="answer">
-        Ну перш за все, тобі потрібно знайти на якій позиції в списку знаходиться "border".
+        <p>
+            Ну перш за все, тобі потрібно знайти на якій позиції в списку знаходиться <b class="code">border</b>. Спробуй використати метод <a target="_blank" href="https://www.w3schools.com/python/ref_list_index.asp">list.index()</a>.
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Мені все ще потрібна деяка допомога...
+        <p>
+            Мені все ще потрібна деяка допомога...
+        </p>
     </div>
     <div class="answer">
-        Якщо ти відкриєш свою консоль python та напишеш:
+        <p>
+            Якщо ти відкриєш свою консоль python та напишеш:
+        </p>
         <pre class="brush: python">
 a = [1, 2, 3]
 a.index(2)
         </pre>
-        <p>Ти повинен отримати у відповідь "1", тому що елемент "2" знаходиться на позиції "1".</p>
+        <p>Ти повинен отримати у відповідь <b class="code">1</b>, тому що елемент <b class="code">2</b> знаходиться на позиції "1".</p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Як я можу це використати у своєму коді?
+        <p>
+            Як я можу це використати у своєму коді?
+        </p>
     </div>
     <div class="answer">
-        Тобі потрібно зробити зріз списку, використовуючи "list.index(border)" як перший елемент. А також не забуть про перевірку на те, чи входить "border" до списку.
+        <p>
+            Тобі потрібно зробити зріз списку, використовуючи "list.index(border)" як перший елемент. А також не забудь про перевірку на те, чи входить <b class="code">border</b> до списку.
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Останнє запитання. Як має виглядати мій фінальний код?
+        <p>
+            Останнє запитання. Як має виглядати мій фінальний код?
+        </p>
     </div>
     <div class="answer">
         <pre class="brush: python">
 def remove_all_before(items: list, border: int) -> Iterable:
+
     if border in items:
         return items[items.index(border):]
     else:
@@ -43,11 +58,9 @@ def remove_all_before(items: list, border: int) -> Iterable:
         <p>Або ти можеш оформити його в один рядок:</p>
         <pre class="brush: python">
 def remove_all_before(items: list, border: int) -> Iterable:
+
     return items[items.index(border):] if border in items else items
         </pre>
-
     </div>
 </div>
-
-
 </body>

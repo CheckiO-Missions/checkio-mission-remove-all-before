@@ -1,40 +1,55 @@
 <body data-author="Doppelok">
 <div class="question-answer">
     <div class="question">
-        I have no idea how to start solving this mission
+        <p>
+            I have no idea how to start solving this mission.
+        </p>
     </div>
     <div class="answer">
-        First of all, you need to find the position of "border" in the list. Try to use "list.index()" method.
+        <p>
+            First of all, you need to find the position of <b class="code">border</b> in the list. Try to use <a target="_blank" href="https://www.w3schools.com/python/ref_list_index.asp">list.index()</a> method.
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        I need some help...
+        <p>
+            I need some help...
+        </p>
     </div>
     <div class="answer">
-        So, if you open your python console and say:
+        <p>
+            So, if you open your python console and says:
+        </p>
         <pre class="brush: python">
 a = [1, 2, 3]
 a.index(2)
         </pre>
-        <p>You should get "1", because element "2" is on "1" position.</p>
+        <p>You should get <b class="code">1</b>, because element <b class="code">2</b> is on "1" position.</p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        How can I use this in my code?
+        <p>
+            How can I use this in my code?
+        </p>
     </div>
     <div class="answer">
-        You need to take a slice of list using "list.index(border)" as first element. And don't forget to check if "border" in list.
+        <p>
+            You need to take a slice of list using <b class="code">list.index(border)</b> as first element. And don't forget to check if <b class="code">border</b> in the list.
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        One last question. How my final solution will look like?
+        <p>
+            One last question. How my final solution will look like?
+        </p>
     </div>
     <div class="answer">
         <pre class="brush: python">
 def remove_all_before(items: list, border: int) -> Iterable:
+
     if border in items:
         return items[items.index(border):]
     else:
@@ -43,11 +58,9 @@ def remove_all_before(items: list, border: int) -> Iterable:
         <p>Or you can do it in one line</p>
         <pre class="brush: python">
 def remove_all_before(items: list, border: int) -> Iterable:
+
     return items[items.index(border):] if border in items else items
         </pre>
-
     </div>
 </div>
-
-
 </body>
