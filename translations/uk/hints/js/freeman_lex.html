@@ -73,6 +73,7 @@ values.slice(ind + +(ind==-1));
             Тобі лише потрібно обгорнути свій код у вираз функції і повернути отриманий зріз.
         </p>
         <p>Ось повний розв'язок:</p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function removeAllBefore(values: number[], b: number): number[] {
 
@@ -81,6 +82,7 @@ function removeAllBefore(values: number[], b: number): number[] {
     return values.slice(ind + +(ind==-1));
 }
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -93,19 +95,23 @@ function removeAllBefore(values: number[], b: number): number[] {
         <p>
             Цей розв'язок використовує потрійний оператор і анонімну функцію. У випадку, якщо масив включає елемент, функція повертає зріз, а інакше - весь масив.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 var removeAllBefore = (values: number[], b: number): number[] =>
 values.includes(b) ? values.slice(values.indexOf(b)) : values;
         </pre>
+        </div>
         <p>
             Якщо елемент у масиві, максимум буде не менше 0, в іншому випадку зріз починатиметься з 0, оскільки 0 > -1.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function removeAllBefore(values: number[], b: number): number[] {
 
     return values.slice(Math.max(0, values.indexOf(b)));
 }
         </pre>
+        </div>
         <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
     </div>
 </div>
