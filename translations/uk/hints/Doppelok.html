@@ -47,6 +47,7 @@ a.index(2)
         </p>
     </div>
     <div class="answer">
+        <div class="spoiler">
         <pre class="brush: python">
 def remove_all_before(items: list, border: int) -> Iterable:
 
@@ -55,12 +56,15 @@ def remove_all_before(items: list, border: int) -> Iterable:
     else:
         return items
         </pre>
+        </div>
         <p>Або ти можеш оформити його в один рядок:</p>
+        <div class="spoiler">
         <pre class="brush: python">
 def remove_all_before(items: list, border: int) -> Iterable:
 
     return items[items.index(border):] if border in items else items
         </pre>
+        </div>
     </div>
 </div>
 </body>
