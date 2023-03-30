@@ -73,6 +73,7 @@ values.slice(ind + +(ind==-1));
             You just need to wrap your code into function expression and return your slice.
         </p>
         <p>Here is the whole solution:</p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function removeAllBefore(values: number[], b: number): number[] {
 
@@ -81,6 +82,7 @@ function removeAllBefore(values: number[], b: number): number[] {
     return values.slice(ind + +(ind==-1));
 }
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -93,19 +95,23 @@ function removeAllBefore(values: number[], b: number): number[] {
         <p>
             This solution uses ternary operator and anonymous function. In case array includes the element, function returns slice, otherwise - the whole array.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 var removeAllBefore = (values: number[], b: number): number[] =>
 values.includes(b) ? values.slice(values.indexOf(b)) : values;
         </pre>
+        </div>
         <p>
             If element is in the array, the maximum is more or equal 0, otherwise slice starts from 0, since 0 > -1.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function removeAllBefore(values: number[], b: number): number[] {
 
     return values.slice(Math.max(0, values.indexOf(b)));
 }
         </pre>
+        </div>
         <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>
