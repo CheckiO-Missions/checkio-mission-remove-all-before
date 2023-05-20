@@ -1,5 +1,5 @@
 <p>
-    Not all of the elements are important. What you need to do here is to remove from the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} all of the elements before the given one.
+    Not all of the elements are important. What you need to do here is to remove from the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} all of the elements before the given one.
 </p>
 
 <p style="text-align: center;">
@@ -7,27 +7,27 @@
 </p>
 
 <p>
-    For the illustration we have a {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} [1, 2, 3, 4, 5] and we need to remove all elements that go before 3 - which is 1 and 2.
+    For the illustration we have {% if is_js %}an <span translate="repeat">array</span>{% else %}a <span translate="repeat">list</span>{% endif %} [1, 2, 3, 4, 5] and we need to remove all elements that go before 3 - which is 1 and 2.
 </p>
 
 <p>
-	We have two edge cases here: (1) if a cutting element cannot be found, then the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} shoudn't be changed. (2) if the {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} is empty, then it should remain empty.
+	We have two edge cases here: (1) if a cutting element cannot be found, then the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} shoudn't be changed. (2) if the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} is empty, then it should remain empty.
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}List{% endif %} and the border element.
+    <strong>Input:</strong> {% if is_js %}<span translate="repeat">Array</span>{% else %}<span translate="repeat">List</span>{% endif %} and the border element.
 </p>
 
 <p>
-    <strong>Output: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable (tuple, list, iterator ...){% endif %}.
+    <strong>Output:</strong> {% if is_js %}<span translate="repeat">Array</span>{% else %}<span translate="repeat">List</span> or another <span translate="repeat">Iterable</span> (<span translate="repeat">tuple</span>, <span translate="repeat">iterator</span>,  <span translate="repeat">generator</span>){% endif %}.
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
