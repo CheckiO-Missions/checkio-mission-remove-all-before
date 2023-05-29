@@ -1,5 +1,5 @@
 <p>
-    Tous les éléments ne sont pas importants. Ce que vous devez faire ici, c'est retirer du<span>tableau</span> {% if is_js %}<span></span> <span>(array)</span><span> </span>{% else %} <span>list</span>{% endif %} tous les éléments avant celui donné.
+    Tous les éléments ne sont pas importants. Ce que vous devez faire ici, c'est retirer du {% if is_js %}<span>tableau</span> <span>(array)</span>{% else %}<span>list</span>{% endif %} tous les éléments avant celui donné.
 </p>
 
 <p style="text-align: center;">
@@ -7,20 +7,20 @@
 </p>
 
 <p>
-    Pour l'illustration, nous avons {% if is_js %}un <span>tableau</span> <span>(array)</span>{% else %} une <span>liste</span> <span>(list)</span>{% endif %} [1, 2, 3, 4, 5] et nous devons supprimer tous les éléments qui précèdent 3 - c'est-à-dire 1 et 2.
+    Pour l'illustration, nous avons {% if is_js %}un <span>tableau</span> <span>(array)</span>{% else %}une <span>liste</span> <span>(list)</span>{% endif %} [1, 2, 3, 4, 5] et nous devons supprimer tous les éléments qui précèdent 3 - c'est-à-dire 1 et 2.
 </p>
 
 <p>
-	Nous avons ici deux cas de figure: (1) si un élément de coupe ne peut être trouvé, le<span>tableau</span> {% if is_js %}<span></span> <span>(array)</span><span> </span>{% else %} <span>liste</span> <span>(list)</span>{% endif %} ne doit pas être modifié. (2) si le<span>tableau</span> {% if is_js %}<span></span> <span>(array)</span><span> </span>{% else %} <span>liste</span> <span>(list)</span>{% endif %} est vide, il doit le rester.
+	Nous avons ici deux cas de figure: (1) si un élément de coupe ne peut être trouvé, le {% if is_js %}<span>tableau</span> <span>(array)</span>{% else %}<span>liste</span> <span>(list)</span>{% endif %} ne doit pas être modifié. (2) si le {% if is_js %}<span>tableau</span> <span>(array)</span>{% else %} <span>liste</span> <span>(list)</span>{% endif %} est vide, il doit le rester.
 </p>
 
 <!-- Explain input and output values -->
 <p>
-   <strong>Entrée:</strong> {% if is_js %}<span>Tableau</span> <span>(Array)</span>{% else %}<span>Liste</span> <span>(List)</span>{% endif %} et l'élément de bordure.
+   <strong>Entrée:</strong> {% if is_js %}<span>Tableau</span> <span>(array)</span>{% else %}<span>Liste</span> <span>(list)</span>{% endif %} et l'élément de bordure.
 </p>
 
 <p>
-   <strong>Résultat:</strong> {% if is_js %}<span>Tableau</span> <span>(Array)</span>{% else %}<span>Liste</span> <span>(List)</span> ou autre <span>Iterable</span> <span>(tuple</span> <span>(tuple)</span>, <span>iterator</span>, <span>generator</span>){% endif %}.
+   <strong>Résultat:</strong> {% if is_js %}<span>Tableau</span> <span>(array)</span>{% else %}<span>Liste</span> <span>(list)</span> ou autre <span>Iterable</span> (<span>tuple</span>, <span>iterator</span>, <span>generator</span>){% endif %}.
 </p>
 
 
