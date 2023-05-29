@@ -1,0 +1,126 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Je n'ai aucune idée de la manière de commencer à résoudre cette mission.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 L'idée est de trouver l'index de l'élément voulu dans le tableau et de renvoyer une tranche du tableau à partir de l'index.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, par quoi dois-je commencer?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Trouvez l'index de l'élément voulu dans le tableau avec la méthode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof_array.asp">array.indexOf()</a> et affectez-le à la nouvelle variable.
+        </p>
+        <pre class="brush: javascript">
+let ind = values.indexOf(b);
+        </pre>
+        <p>
+            Si l'élément n'est pas dans le tableau, la méthode renvoie <b class="code">-1</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, comment faire une tranche correcte du tableau?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour ce faire, utilisez la méthode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a> en commençant par l'index <b class="code">ind</b> que vous avez trouvé.
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Que faire si un élément n'est pas dans le tableau?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Comme je l'ai dit précédemment, dans ce cas, <b class="code">ind</b> est égal à <b class="code">-1</b>. Et voici une petite astuce. Examinons les combinaisons possibles de valeurs: la variable <b class="code">ind</b> et l'expression <b class="code">ind == -1</b>.  
+        </p>
+        <p>
+            Si <b class="code">ind >= 0</b> (l'élément est présent dans le tableau), <b class="code">ind == -1</b> est <b class="code">false (or 0)</b>. Sinon, si <b class="code">ind = -1</b>, <b class="code">ind == -1</b> est <b class="code">true (or 1)</b>. Lorsque l'élément est présent dans le tableau, vous en faites une tranche, lorsqu'il est absent - vous retournez le tableau entier, ou vous pouvez dire - vous faites une tranche à partir du début du tableau, à partir de l'indice 0!  
+        </p>
+        <p>
+            Ce comportement peut être obtenu si vous ajoutez ces deux valeurs en tant qu'argument de la méthode <b class="code">slice()</b>. Pour convertir une valeur en nombre, utilisez l'opérateur <b class="code">+</b> juste avant l'expression.  
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind + +(ind==-1));
+        </pre>
+        <p>
+            Si l'élément est dans un tableau, vous obtenez l'expression suivante (l'index est 5 par exemple): <b>5 + (ind==-1 -> false -> 0) = 5</b> dans le cas contraire (l'élément n'est pas dans un tableau, donc <b class="code">ind</b> est égal à <b class="code">-1</b>): <b>-1 + (ind==-1 -> true -> 1) = 0</b>. C'est exactement ce dont vous avez besoin!
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Alors, à quoi devrait ressembler ma solution finale?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit d'envelopper votre code dans une expression de fonction et de renvoyer votre tranche.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    let ind = values.indexOf(b);
+    
+    return values.slice(ind + +(ind==-1));
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Montrez-moi d'autres solutions!<br />
+        parce que je veux être un vrai 🥇 Javascript Hero!</p>
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Cette solution utilise l'opérateur ternaire et une fonction anonyme. Dans le cas où le tableau inclut l'élément, la fonction renvoie une tranche, sinon - le tableau entier.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var removeAllBefore = (values: number[], b: number): number[] =>
+values.includes(b)? values.slice(values.indexOf(b)): values;
+        </pre>
+        </div>
+        <p>
+            Si l'élément est dans le tableau, le maximum est supérieur ou égal à 0, sinon la tranche commence à 0, puisque 0 &gt; -1.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    return values.slice(Math.max(0, values.indexOf(b)));
+}
+        </pre>
+        </div>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!</p>
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>
