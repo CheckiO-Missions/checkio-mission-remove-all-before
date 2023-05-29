@@ -1,0 +1,70 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Tout d'abord, vous devez trouver la position de <b class="code">border</b> dans la liste. Essayez d'utiliser la méthode <a target="_blank" href="https://www.w3schools.com/python/ref_list_index.asp">list.index()</a>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            J'ai besoin d'aide...
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Donc, si vous ouvrez votre console python et que vous dites:
+        </p>
+        <pre class="brush: python">
+a = [1, 2, 3]
+a.index(2)
+        </pre>
+        <p>Vous devriez obtenir <b class="code">1</b>, car l'élément <b class="code">2</b> est en position "1".</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Comment puis-je utiliser cela dans mon code?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Vous devez prendre une tranche de la liste en utilisant <b class="code">list.index(border)</b> comme premier élément. Et n'oubliez pas de vérifier si <b class="code">border</b> se trouve dans la liste.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Une dernière question. À quoi ressemblera ma solution finale?
+        </p>
+    </div>
+    <div class="answer">
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    if border in items:
+        return items[items.index(border):]
+    else:
+        return items
+        </pre>
+        </div>
+        <p>Ou vous pouvez le faire en une ligne</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    return items[items.index(border):] if border in items else items
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
