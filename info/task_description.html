@@ -1,5 +1,5 @@
 <p>
-    Not all of the elements are important. What you need to do here is to remove from the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} all of the elements before the given one.
+    Not all of the elements are important. What you need to do here is to remove from the sequence all of the elements before the given one.
 </p>
 
 <p style="text-align: center;">
@@ -7,16 +7,16 @@
 </p>
 
 <p>
-    For the illustration we have {% if is_js %}an <span translate="repeat">array</span>{% else %}a <span translate="repeat">list</span>{% endif %} [1, 2, 3, 4, 5] and we need to remove all elements that go before 3 - which is 1 and 2.
+    For the illustration we have a sequence [1, 2, 3, 4, 5] and we need to remove all elements that go before <b>3</b> - which are <b>1</b> and <b>2</b>.
 </p>
 
 <p>
-	We have two edge cases here: (1) if a cutting element cannot be found, then the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} shoudn't be changed. (2) if the {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} is empty, then it should remain empty.
+	We have two edge cases here: (1) if a cutting element cannot be found, then the sequence shoudn't be changed. (2) if the sequence is empty, then it should remain empty.
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> {% if is_js %}<span translate="repeat">Array</span>{% else %}<span translate="repeat">List</span>{% endif %} and the border element.
+    <strong>Input:</strong> <span translate="repeat">{% if is_js %}Array{% else %}List{% endif %}</span> and the border element.
 </p>
 
 <p>
