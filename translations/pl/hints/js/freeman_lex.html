@@ -1,0 +1,126 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            chodzi o znalezienie indeksu żądanego elementu w tablicy i zwrócenie wycinka tablicy zaczynającego się od indeksu.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, od czego powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę znaleźć indeks poszukiwanego elementu w tablicy za pomocą metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof_array.asp">array.indexOf()</a> i przypisać go do nowej zmiennej.
+        </p>
+        <pre class="brush: javascript">
+let ind = values.indexOf(b);
+        </pre>
+        <p>
+            W przypadku, gdy element nie znajduje się w tablicy, metoda zwraca <b class="code">-1</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, jak utworzyć prawidłowy wycinek tablicy?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            W tym celu proszę użyć metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a> z początkiem od indeksu <b class="code">ind</b>, który Pan znalazł.
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Co zrobić w przypadku, gdy element nie znajduje się w tablicy?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Jak już wspomniałem, w tym przypadku <b class="code">ind</b> równa się <b class="code">-1</b>. I tutaj jest mała sztuczka. Proszę spojrzeć na możliwe kombinacje wartości: zmiennej <b class="code">ind</b> i wyrażenia <b class="code">ind == -1</b>.  
+        </p>
+        <p>
+            Jeśli <b class="code">ind>= 0</b> (element jest obecny w tablicy) <b class="code">ind == -1</b> jest <b class="code">false (or 0)</b>. W przeciwnym razie, jeśli <b class="code">ind = -1</b>, <b class="code">ind == -1</b> jest <b class="code">true (or 1)</b>. Jeśli element jest obecny w tablicy, proszę utworzyć z niego wycinek, jeśli go nie ma - proszę zwrócić całą tablicę, lub można powiedzieć - proszę utworzyć wycinek od początku tablicy, od indeksu 0!  
+        </p>
+        <p>
+            Takie zachowanie można osiągnąć, jeśli doda się te dwie wartości jako argument metody <b class="code">slice()</b>. Aby przekonwertować wartość na liczbę, należy użyć operatora <b class="code">+</b> tuż przed wyrażeniem.  
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind + +(ind==-1));
+        </pre>
+        <p>
+            W przypadku, gdy element znajduje się w tablicy, otrzymamy takie wyrażenie (na przykład indeks wynosi 5): <b>5 + (ind==-1 -> false -> 0) = 5</b>, w innym przypadku (element nie znajduje się w tablicy, więc <b class="code">ind</b> równa się <b class="code">-1</b>): <b>-1 + (ind==-1 -> true -> 1) = 0</b>. To jest dokładnie to, czego Pan potrzebuje!
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak więc powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zawinąć kod w wyrażenie funkcji i zwrócić wycinek.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    let ind = values.indexOf(b);
+    
+    return values.slice(ind + +(ind==-1));
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 bohaterem Javascriptu!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę pobrać!</p>
+        <p>
+            To rozwiązanie wykorzystuje operator trójargumentowy i anonimową funkcję. W przypadku, gdy tablica zawiera element, funkcja zwraca wycinek, w przeciwnym razie - całą tablicę.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var removeAllBefore = (values: number[], b: number): number[] =>
+values.includes(b)? values.slice(values.indexOf(b)): values;
+        </pre>
+        </div>
+        <p>
+            Jeśli element znajduje się w tablicy, maksimum jest większe lub równe 0, w przeciwnym razie wycinek zaczyna się od 0, ponieważ 0 &gt; -1.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    return values.slice(Math.max(0, values.indexOf(b)));
+}
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa dobrze!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>

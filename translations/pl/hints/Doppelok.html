@@ -1,0 +1,70 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Przede wszystkim musi Pan znaleźć pozycję <b class="code">border</b> na liście. Proszę spróbować użyć metody <a target="_blank" href="https://www.w3schools.com/python/ref_list_index.asp">list.index()</a>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Proszę mi pomóc...
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Tak więc, jeśli otworzy Pan konsolę Pythona i powie:
+        </p>
+        <pre class="brush: python">
+a = [1, 2, 3]
+a.index(2)
+        </pre>
+        <p>Powinien Pan otrzymać <b class="code">1</b>, ponieważ element <b class="code">2</b> jest na pozycji "1".</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Jak mogę to wykorzystać w moim kodzie?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Musi Pan pobrać wycinek listy, używając <b class="code">list.index(border)</b> jako pierwszego elementu. Proszę nie zapomnieć sprawdzić, czy <b class="code">border</b> znajduje się na liście.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ostatnie pytanie. Jak będzie wyglądać moje ostateczne rozwiązanie?
+        </p>
+    </div>
+    <div class="answer">
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    if border in items:
+        return items[items.index(border):]
+    else:
+        return items
+        </pre>
+        </div>
+        <p>Czy może Pan to zrobić w jednej linii</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    return items[items.index(border):] if border in items else items
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
