@@ -1,0 +1,126 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这项任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡我们的想法是在数组中找到想要的元素的索引，然后返回一个从索引开始的数组切片。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好吧，我应该从哪里开始呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            用<a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof_array.asp">array.indexOf()</a> 方法在数组中找到想要的元素的索引，并将其赋值给新变量。
+        </p>
+        <pre class="brush: javascript">
+let ind = values.indexOf(b);
+        </pre>
+        <p>
+            如果元素不在数组中，方法返回<b class="code">-1</b> 。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            好的，如何对数组进行正确的切片？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            为此使用<a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a> 方法，从您找到的索引<b class="code">ind</b> 开始。
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            如果元素不在数组中该怎么办？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            正如我之前所说，在这种情况下，<b class="code">ind</b> 等于<b class="code">-1</b> 。这里有一个小技巧。让我们看看可能的值组合：变量<b class="code">ind</b> 和表达式<b class="code">ind == -1</b> 。  
+        </p>
+        <p>
+            如果<b class="code">ind>= 0</b> (元素存在于数组中)<b class="code">ind == -1</b> 就是<b class="code">false (or 0)</b>.否则，如果<b class="code">ind = -1</b>,<b class="code">ind == -1</b> 就是<b class="code">true (or 1)</b>.当元素存在于数组中时，从元素中切片，当元素不存在时，返回整个数组，或者可以说从数组的0索引开始切片！  
+        </p>
+        <p>
+            如果将这两个值作为<b class="code">slice()</b> 方法的参数，就可以得到这样的结果。要将数值转换为数字，请在表达式前使用<b class="code">+</b> 操作符。  
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind + +(ind==-1));
+        </pre>
+        <p>
+            如果元素在数组中，您将得到这样的表达式（例如索引为5）：<b>5 + (ind==-1 -> false -> 0) = 5</b>, 在其他情况下（元素不在数组中，所以<b class="code">ind</b> 等于<b class="code">-1</b> ）：<b>-1 + (ind==-1 -> true -> 1) = 0</b>.这正是您所需要的！
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是怎样的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            您只需将您的代码封装到函数表达式中并返回您的切片。
+        </p>
+        <p>下面是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    let ind = values.indexOf(b);
+    
+    return values.slice(ind + +(ind==-1));
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>向我展示更多解决方案！<br />
+        因为我想成为一个真正的 🥇 Javascript 英雄！</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它！</p>
+        <p>
+            这个解决方案使用了三元运算符和匿名函数。如果数组包含元素，函数返回切片，否则返回整个数组。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var removeAllBefore = (values: number[], b: number): number[] =>
+values.includes(b)? values.slice(values.indexOf(b)): values;
+        </pre>
+        </div>
+        <p>
+            如果元素在数组中，最大值大于等于0，否则切片从0开始，因为0 &gt;-1。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    return values.slice(Math.max(0, values.indexOf(b)));
+}
+        </pre>
+        </div>
+        <p>点击<b>Best Solutions</b> 查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢！现在我知道并理解了更多！一切正常！</p>
+    </div>
+    <div class="answer">
+        很高兴听到这个消息！
+    </div>
+</div>
+</body>
