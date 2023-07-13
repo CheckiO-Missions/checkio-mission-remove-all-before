@@ -1,0 +1,70 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我不知道如何开始解决这项任务。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            首先，您需要找到<b class="code">border</b> 在列表中的位置。尝试使用<a target="_blank" href="https://www.w3schools.com/python/ref_list_index.asp">list.index()</a> 方法。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要帮助...
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            因此，如果您打开python控制台并说：
+        </p>
+        <pre class="brush: python">
+a = [1, 2, 3]
+a.index(2)
+        </pre>
+        <p>你应该得到<b class="code">1</b> ，因为元素<b class="code">2</b> 在 "1 "的位置上。</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            在我的代码中如何使用？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            您需要使用<b class="code">list.index(border)</b> 作为第一个元素对列表进行切片。不要忘记检查<b class="code">border</b> 是否在列表中。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            最后一个问题。我的最终解决方案是怎样的？
+        </p>
+    </div>
+    <div class="answer">
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    if border in items:
+        return items[items.index(border):]
+    else:
+        return items
+        </pre>
+        </div>
+        <p>或者您可以用一行来完成</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    return items[items.index(border):] if border in items else items
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
