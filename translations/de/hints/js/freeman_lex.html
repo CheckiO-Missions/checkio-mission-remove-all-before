@@ -1,0 +1,126 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.</p>
+    </div>
+    <div class="answer">
+        <p>
+            die Idee ist, den Index des gewünschten Elements im Array zu finden und ein Stück des Arrays ab dem Index zurückzugeben.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, womit soll ich beginnen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Finden Sie den Index des gewünschten Elements im Array mit der Methode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_indexof_array.asp">array.indexOf()</a> und weisen Sie ihn der neuen Variablen zu.
+        </p>
+        <pre class="brush: javascript">
+let ind = values.indexOf(b);
+        </pre>
+        <p>
+            Falls sich das Element nicht in Array befindet, gibt die Methode <b class="code">-1</b> zurück.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, wie macht man einen korrekten Ausschnitt aus dem Array?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Verwenden Sie zu diesem Zweck die Methode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a> mit Start ab dem gefundenen Index <b class="code">ind</b>.
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Was ist zu tun, wenn ein Element nicht im Array enthalten ist?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Wie ich bereits sagte, ist in diesem Fall <b class="code">ind</b> gleich <b class="code">-1</b>. Und hier gibt es einen kleinen Trick. Schauen wir uns die möglichen Kombinationen von Werten an: Variable <b class="code">ind</b> und Ausdruck <b class="code">ind == -1</b>.  
+        </p>
+        <p>
+            Wenn <b class="code">ind>= 0</b> (Element ist im Array vorhanden) <b class="code">ind == -1</b> ist <b class="code">false (or 0)</b>. Andernfalls, wenn <b class="code">ind = -1</b>, ist <b class="code">ind == -1</b> <b class="code">true (or 1)</b> . Wenn das Element im Array vorhanden ist, erstellen Sie ein Slice davon, wenn es nicht vorhanden ist - geben Sie das gesamte Array zurück, oder Sie können sagen - erstellen Sie ein Slice vom Anfang des Arrays, vom Index 0!  
+        </p>
+        <p>
+            Ein solches Verhalten kann erreicht werden, wenn Sie diese beiden Werte als Argument der Methode <b class="code">slice()</b> hinzufügen. Um einen Wert in eine Zahl umzuwandeln, verwenden Sie den Operator <b class="code">+</b> direkt vor dem Ausdruck.  
+        </p>
+        <pre class="brush: javascript">
+values.slice(ind + +(ind==-1));
+        </pre>
+        <p>
+            Wenn sich das Element in einem Array befindet, erhalten Sie einen solchen Ausdruck (z.B. Index ist 5): <b>5 + (ind==-1 -> false -> 0) = 5</b>, im anderen Fall (Element ist nicht in Array, also ist <b class="code">ind</b> gleich <b class="code">-1</b>): <b>-1 + (ind==-1 -> true -> 1) = 0</b>. Das ist genau das, was Sie brauchen!
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Wie sollte also meine endgültige Lösung aussehen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen nur Ihren Code in einen Funktionsausdruck verpacken und Ihr Slice zurückgeben.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    let ind = values.indexOf(b);
+    
+    return values.slice(ind + +(ind==-1));
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Javascript-Held sein!</p>
+    </div>
+    <div class="answer">
+        <p>Klar, schnappen Sie es sich!</p>
+        <p>
+            Diese Lösung verwendet den ternären Operator und eine anonyme Funktion. Wenn das Array ein Element enthält, gibt die Funktion einen Ausschnitt zurück, andernfalls das gesamte Array.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var removeAllBefore = (values: number[], b: number): number[] =>
+values.includes(b)? values.slice(values.indexOf(b)): values;
+        </pre>
+        </div>
+        <p>
+            Wenn das Element im Array enthalten ist, ist das Maximum größer oder gleich 0, andernfalls beginnt slice bei 0, da 0 &gt; -1.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function removeAllBefore(values: number[], b: number): number[] {
+
+    return values.slice(Math.max(0, values.indexOf(b)));
+}
+        </pre>
+        </div>
+        <p>Klicken Sie im Missionsmenü auf <b>Best Solutions</b> und sehen Sie sich viele weitere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!</p>
+    </div>
+    <div class="answer">
+        👍 Freut mich zu hören!
+    </div>
+</div>
+</body>
