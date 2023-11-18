@@ -1,0 +1,34 @@
+<p>
+    Nicht alle Elemente sind wichtig. Was Sie hier tun müssen, ist, alle Elemente vor dem angegebenen Element aus der Sequenz zu entfernen.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p>
+
+<p>
+    Zur Veranschaulichung haben wir eine Sequenz [1, 2, 3, 4, 5] und wir müssen alle Elemente entfernen, die vor <b>3</b> stehen - das sind <b>1</b> und <b>2</b>.
+</p>
+
+<p>
+	Wir haben hier zwei Grenzfälle: (1) Wenn kein schneidendes Element gefunden werden kann, sollte die Reihenfolge nicht geändert werden. (2) Wenn die Sequenz leer ist, dann sollte sie leer bleiben.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> {% if is_js %}Array{% else %}Liste{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span> und das Randelement.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> {% if is_js %}Array{% else %} Liste <span>(List)</span> oder ein anderes Iterable (Tupel <span>(tuple)</span>, Iterator <span>(iterator)</span>, Generator <span>(generator)</span>){% endif %}.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
