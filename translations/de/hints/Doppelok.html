@@ -1,0 +1,70 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Zunächst einmal müssen Sie die Position von <b class="code">border</b> in der Liste herausfinden. Versuchen Sie, die Methode <a target="_blank" href="https://www.w3schools.com/python/ref_list_index.asp">list.index()</a> zu verwenden.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich brauche etwas Hilfe...
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Also, wenn Sie Ihre Python-Konsole öffnen und sagen:
+        </p>
+        <pre class="brush: python">
+a = [1, 2, 3]
+a.index(2)
+        </pre>
+        <p>Sie sollten <b class="code">1</b> erhalten, da das Element <b class="code">2</b> auf der Position "1" steht.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wie kann ich dies in meinem Code verwenden?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen einen Ausschnitt aus der Liste nehmen und <b class="code">list.index(border)</b> als erstes Element verwenden. Und vergessen Sie nicht zu prüfen, ob <b class="code">border</b> in der Liste enthalten ist.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Eine letzte Frage. Wie wird meine endgültige Lösung aussehen?
+        </p>
+    </div>
+    <div class="answer">
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    if border in items:
+        return items[items.index(border):]
+    else:
+        return items
+        </pre>
+        </div>
+        <p>Oder Sie können es in einer Zeile machen</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def remove_all_before(items: list, border: int) -> Iterable:
+
+    return items[items.index(border):] if border in items else items
+        </pre>
+        </div>
+    </div>
+</div>
+</body>
